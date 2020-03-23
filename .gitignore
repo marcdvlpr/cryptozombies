@@ -1,0 +1,9 @@
+# Build directory
+build/
+
+# Dependency directories
+node_modules/
+
+# Misc
+.DS_Store
+Thumbs.db
