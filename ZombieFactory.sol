@@ -10,8 +10,10 @@ contract ZombieFactory is Ownable {
   uint dnaModulus = 10 ** dnaDigits;
 
   struct Zombie {
-      string name;
-      uint dna;
+    string name;
+    uint dna;
+    uint32 level;
+    uint32 readyTime;
   }
 
   Zombie[] public zombies;
