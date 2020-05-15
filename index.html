@@ -14,10 +14,20 @@
 
     <script>
       let cryptoZombies;
+      let userAccount;
 
       function startApp() {
         let cryptoZombiesAddress = "CONTRACT_ADDRESS";
         cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
+
+        let accountInterval = setInterval(function () {
+          // Check if account has changed
+          if (web3.eth.accounts[0] !== userAccount) {
+            userAccount = web3.eth.accounts[0];
+            // Call some function to update the UI with the new account
+            getZombiesByOwner(userAccount).then(displayZombies);
+          }
+        }, 100);
       }
 
       function getZombieDetails(id) {
